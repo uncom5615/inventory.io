@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>設備登記表</title>
+</head>
+<body>
+    <h1>設備登記表</h1>
+    <form id="deviceForm">
+        <label for="deviceName">設備名稱:</label>
+        <input type="text" id="deviceName" required><br><br>
+
+        <label for="deviceType">設備類型:</label>
+        <input type="text" id="deviceType" required><br><br>
+
+        <button type="submit">提交</button>
+    </form>
+
+    <div id="deviceList">
+        <h2>已登記設備</h2>
+        <ul id="deviceItems">
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('deviceForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var name = document.getElementById('deviceName').value;
+            var type = document.getElementById('deviceType').value;
+
+            var deviceItem = document.createElement('li');
+            deviceItem.textContent = '設備名稱: ' + name + ', 設備類型: ' + type;
+
+            document.getElementById('deviceItems').appendChild(deviceItem);
+        });
+    </script>
+</body>
+</html>
